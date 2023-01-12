@@ -32,12 +32,12 @@ options:
       - arg: --disable-cloud-controller
         nodeFilters:
           - server:*
-#      - arg: --disable-kube-proxy
-#        nodeFilters:
-#          - server:*
-#      - arg: --disable-network-policy
-#        nodeFilters:
-#          - server:*
+      - arg: --disable-kube-proxy
+        nodeFilters:
+          - server:*
+      - arg: --disable-network-policy
+        nodeFilters:
+          - server:*
       - arg: --disable-helm-controller
         nodeFilters:
           - server:*
