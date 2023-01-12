@@ -7,5 +7,5 @@ k3d-cluster-create:
 		--config my-cluster.yaml
 
 k-create-deployment-hello-world:
-	kubectl create deployment hello-world-dep --image=k8s.gcr.io/echoserver:1.10 --port 80 && \
+	kubectl create deployment hello-world-dep --image=k8s.gcr.io/echoserver:1.10 --port 8080 && \
 	kubectl expose deployment hello-world-dep --type=NodePort
