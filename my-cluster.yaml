@@ -1,0 +1,54 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: mustang
+servers: 1
+agents: 3
+options:
+  k3d:
+    disableLoadbalancer: true
+    disableImageVolume: false
+    disableRollback: true
+  k3s:
+    extraArgs:
+      - arg: --disable=metrics-server
+        nodeFilters:
+          - server:*
+      - arg: --disable=local-storage
+        nodeFilters:
+          - server:*
+      - arg: --disable=traefik
+        nodeFilters:
+          - server:*
+      - arg: --disable=servicelb
+        nodeFilters:
+          - server:*
+      - arg: --disable=coredns
+        nodeFilters:
+          - server:*
+      - arg: --disable-scheduler
+        nodeFilters:
+          - server:*
+      - arg: --disable-cloud-controller
+        nodeFilters:
+          - server:*
+      - arg: --disable-kube-proxy
+        nodeFilters:
+          - server:*
+      - arg: --disable-network-policy
+        nodeFilters:
+          - server:*
+      - arg: --disable-helm-controller
+        nodeFilters:
+          - server:*
+    nodeLabels:
+      - label: sva.io/canBus=true
+        nodeFilters:
+          - agent:0
+          - agent:2
+      - label: sva.io/transmissionRate=65536
+        nodeFilters:
+          - agent:0
+      - label: sva.io/transmissionRate=131072
+        nodeFilters:
+          - agent:2
