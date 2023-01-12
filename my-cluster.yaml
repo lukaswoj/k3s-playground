@@ -26,9 +26,9 @@ options:
       - arg: --disable=coredns
         nodeFilters:
           - server:*
-      - arg: --disable-scheduler
-        nodeFilters:
-          - server:*
+#      - arg: --disable-scheduler
+#        nodeFilters:
+#          - server:*
       - arg: --disable-cloud-controller
         nodeFilters:
           - server:*
